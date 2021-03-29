@@ -28,7 +28,7 @@ WHEN I click on a city in the search history
 THEN I am again presented with current and future conditions for that city
 ```
 
-The following image demonstrates the structure on the HTML framework of this app:
+The following image was created to demonstrate the structure of the HTML framework:
 ![html framewok](./assets/images/html-structure.png)
 
 The following image demonstrates the application functionality:
