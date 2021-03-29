@@ -28,6 +28,9 @@ WHEN I click on a city in the search history
 THEN I am again presented with current and future conditions for that city
 ```
 
+The following image demonstrates the structure on the HTML framework of this app:
+![html framewok](./assets/images/html-structure.png)
+
 The following image demonstrates the application functionality:
 
 ![weather dashboard demo](./assets/06-server-side-apis-homework-demo.png)
