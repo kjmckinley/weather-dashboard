@@ -28,11 +28,39 @@
     </nav>
 
     <div class="container">
+
         <div class="row">
+
             <div class="col-4 bg-light">
                 <p class="search">Search for a City!</p>
-                
-                <input id="city" type="text" class="form-control" placeholder="Enter a City Name" />
+                <div class="user-input mb-3">
+                    <input id="city" type="text" class="form-control" placeholder="Enter a City Name" />
+                    <div class="user-input-append">
+                        <button class="btn btn-primary" type="button" id="search-btn">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                </div>
+                <form id="user-search-history"></form>
+            </div>
+
+                <div class="col-8">
+
+                    <div class="row mr-0">
+
+                        <div class="col-12 border border-dark m-3 rounded">
+
+                            <div class="row">
+                                <span id="city-name" class="city-name align-middle"></span>
+                                <img id="weather-conditon-pic" src="placeholder" alt="" />
+                            </div>
+
+                            <div class="row">
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
