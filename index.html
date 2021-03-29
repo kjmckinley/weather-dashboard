@@ -23,14 +23,18 @@
 
   <body>
 
+    <!-- A nav bar for the heading of the application -->
     <nav class="navbar navbar-dark bg-dark">
         <span class="navbar-brand mb-0 h1 w-100 text-center">Weather Dashboard</span>
     </nav>
 
+    <!-- this div will house all of the pages content -->
     <div class="container">
 
+        <!-- row to contain all rows and columns -->
         <div class="row">
 
+            <!-- search bar -->
             <div class="col-4 bg-light">
                 <p class="search">Search for a City!</p>
                 <div class="user-input mb-3">
@@ -41,20 +45,25 @@
                         </button>
                     </div>
                 </div>
+                <!-- user history section -->
                 <form id="user-search-history"></form>
             </div>
 
+            <!-- column that houses all of the weather info -->
             <div class="col-8">
 
+                <!-- row that holds the base weather conditions -->
                 <div class="row mr-0">
 
                     <div class="col-12 border border-dark m-3 rounded">
 
+                        <!-- row that displays the city name and a weather icon -->
                         <div class="row">
                             <span id="city-name" class="city-name align-middle"></span>
                             <img id="weather-conditon-pic" src="placeholder" alt="" />
                         </div>
 
+                        <!-- Mmultiple rows displaying the base weather conditions -->
                         <div class="row">
 
                             <div class="col-12">
@@ -91,7 +100,8 @@
                         <h3>5-Day Forcast</h3>
                     </div>
                 </div>
-                
+
+                <!-- 5 columns that will contain the local weather information -->
                 <div class="col forecast bg-primary text-white ml-3 mb-3 rounded"></div>
                 <div class="col forecast bg-primary text-white ml-3 mb-3 rounded"></div>
                 <div class="col forecast bg-primary text-white ml-3 mb-3 rounded"></div>
