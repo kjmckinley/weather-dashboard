@@ -6,7 +6,7 @@ var clearHistoryBtn = document.querySelector("#reset-button")
 var zipcodeFormEl = document.querySelector("#zipcode-form");
 var zipcodeInputEl = document.querySelector("#zipcode");
 
-var searchContainerEl = document.querySelector("#search-history")
+var searchContainerEl = document.querySelector("#city-search-history")
 var searchHistory = [];
 var currentSearch = 0;
 
@@ -82,7 +82,7 @@ function getForecast(zipcode) {
         day1El.className = "column col forecast-container"
 
         var day1Header = document.querySelector("#day1date")
-        day1Header.className = "forecast-header";
+        day1Header.className = "forecast-head";
         day1Header.textContent = moment().add(1,"days").format("MM[/]D[/]YYYY");
 
         var day1Temp = document.querySelector("#day1temp")
@@ -101,7 +101,7 @@ function getForecast(zipcode) {
         day2El.className = "column col forecast-container"
 
         var day2Header = document.querySelector("#day2date")
-        day2Header.className = "forecast-header";
+        day2Header.className = "forecast-head";
         day2Header.textContent = moment().add(2,"days").format("MM[/]D[/]YYYY");
 
         var day2Temp = document.querySelector("#day2temp")
@@ -120,7 +120,7 @@ function getForecast(zipcode) {
         day3El.className = "column col forecast-container"
 
         var day3Header = document.querySelector("#day3date")
-        day3Header.className = "forecast-header";
+        day3Header.className = "forecast-head";
         day3Header.textContent = moment().add(3,"days").format("MM[/]D[/]YYYY");
 
         var day3Temp = document.querySelector("#day3temp")
@@ -139,7 +139,7 @@ function getForecast(zipcode) {
         day4El.className = "column col forecast-container"
 
         var day4Header = document.querySelector("#day4date")
-        day4Header.className = "forecast-header";
+        day4Header.className = "forecast-head";
         day4Header.textContent = moment().add(4,"days").format("MM[/]D[/]YYYY");
 
         var day4Temp = document.querySelector("#day4temp")
@@ -158,7 +158,7 @@ function getForecast(zipcode) {
         day5El.className = "column col forecast-container"
 
         var day5Header = document.querySelector("#day5date")
-        day5Header.className = "forecast-header";
+        day5Header.className = "forecast-head";
         day5Header.textContent = moment().add(5,"days").format("MM[/]D[/]YYYY");
 
         var day5Temp = document.querySelector("#day5temp")
@@ -232,18 +232,18 @@ function getUVindex(lat,lon) {
     .then(function(response){
         var uvIndex = document.querySelector("#uv-index")
         uvIndex.textContent = "UV Index: " + Math.floor(response.data[0].uv)
-        uvIndex.classList ="info-display"
+        uvIndex.classList ="show-info"
 
         var uvIndexData = Math.floor(response.data[0].uv);
 
         if (uvIndexData <= 2){
-            uvIndex.classList = "info-display uv-safe";
+            uvIndex.classList = "show-info uv-safe";
         }
         if (uvIndexData >= 3){
-            uvIndex.classList = "info-display uv-warning";
+            uvIndex.classList = "show-info uv-warning";
         }
         if (uvIndexData >= 6) {
-            uvIndex.classList = "info-display uv-danger";
+            uvIndex.classList = "show-info uv-danger";
         }
     })
 }
