@@ -1,5 +1,5 @@
 # Weather Dashboard
-This application is meant to serve as a simple local weather dashboard in which the user can enter their city in a search-field and a 5-day forcast will be displayed for that city. If the user enters another city, then the previous city will be set aside as a clickable button, using local storage, that they can revisit at any time.
+This application is meant to serve as a simple local weather dashboard in which the user can enter their city in a search-field and a 5-day forecast will be displayed for that city. If the user enters another city, then the previous city will be set aside as a clickable button, using local storage, that they can revisit at any time.
 
 ## User Story
 
@@ -9,33 +9,16 @@ I WANT to see the weather outlook for multiple cities
 SO THAT I can plan a trip accordingly
 ```
 
-## Acceptance Criteria
-
-```
-GIVEN a weather dashboard with form inputs
-WHEN I search for a city
-THEN I am presented with current and future conditions for that city and that city is added to the search history
-WHEN I view current weather conditions for that city
-THEN I am presented with the city name, the date, an icon representation of weather conditions, the temperature, the humidity, the wind speed, and the UV index
-WHEN I view the UV index
-THEN I am presented with a color that indicates whether the conditions are favorable, moderate, or severe
-WHEN I view future weather conditions for that city
-THEN I am presented with a 5-day forecast that displays the date, an icon representation of weather conditions, the temperature, and the humidity
-WHEN I click on a city in the search history
-THEN I am again presented with current and future conditions for that city
-```
-
-The following image was created to show the basic structure of the HTML framework:
-![html framewok](./assets/images/html-structure.png)
 
 The following image demonstrates the application functionality:
 
-![weather dashboard demo](./assets/06-server-side-apis-homework-demo.png)
+![weather dashboard demo](./assets/weather_example.PNG)
 
 ## Links
-GitHub Repo Link: https://github.com/kjmckinley/weather-dashboard.git
-Deployed Link: https://kjmckinley.github.io/weather-dashboard/
+- GitHub Repo Link: https://github.com/kjmckinley/weather-dashboard.git
+- Deployed Link: https://kjmckinley.github.io/weather-dashboard/
 
-NOTES:
-
-Use the [OpenWeather API](https://openweathermap.org/api) to retrieve weather data for cities. The documentation includes a section called "How to start" that will provide basic setup and usage instructions. Use `localStorage` to store any persistent data.
+## Contributions
+- Kyle McKinley: github - kjmckinley
+- Ritchie Ortiz: github - xRortiz91
+- github - lacey-griffith, who compelled me to believe that I was approaching this all wrong and needed to start from scratch using a very different approach.
