@@ -2,15 +2,17 @@
 
 // API Key: 62945687d697ead5f1333d2a6ea75d0a
 
-var clearHistoryBtn = document.querySelector("#reset-button")
-var zipcodeFormEl = document.querySelector("#zipcode-form");
+var clearHistoryBtn = document.querySelector("#reset-button");
 var zipcodeInputEl = document.querySelector("#zipcode");
+var zipcodeFormEl = document.querySelector("#zipcode-form");
+
 
 var searchContainerEl = document.querySelector("#city-search-history")
+var currentSearchResult = 0;
 var searchHistory = [];
-var currentSearch = 0;
 
 
+// function that activates the api and sets everything up to be retieved and displayed in the html
 function getWeather(zipcode) {
     var weatherAPI = "https://api.openweathermap.org/data/2.5/weather?zip=" + zipcode + ",us&units=imperial&appid=62945687d697ead5f1333d2a6ea75d0a";
 
@@ -38,9 +40,10 @@ function getWeather(zipcode) {
             var windSpeed = document.querySelector("#wind-speed")
             windSpeed.textContent = "Wind: " + response.wind.speed + " mph";
 
+            // grabbing city info
             var searchObj = [{
                 city: response.name,
-                searchID: currentSearch,
+                searchID: currentSearchResult,
                 zipcode: zipcode,
                 lat: response.coord.lat,
                 long: response.coord.lon
@@ -67,9 +70,10 @@ function getWeather(zipcode) {
             var lon = response.coord.lon
             getUVindex(lat,lon)
         })
-    currentSearch++
+    currentSearchResult++
 };
 
+// function that allocates all weather info using the weather api key
 function getForecast(zipcode) {
     var forecastAPI = "https://api.openweathermap.org/data/2.5/forecast?zip="+zipcode+",us&units=imperial&appid=62945687d697ead5f1333d2a6ea75d0a";
     
@@ -78,7 +82,7 @@ function getForecast(zipcode) {
     })
     .then(function(response){
         //day 1 forecast
-        var day1El = document.querySelector("#day1")
+        var day1El = document.querySelector("#day-1")
         day1El.className = "column col forecast-container"
 
         var day1Header = document.querySelector("#day1date")
@@ -86,18 +90,18 @@ function getForecast(zipcode) {
         day1Header.textContent = moment().add(1,"days").format("MM[/]D[/]YYYY");
 
         var day1Temp = document.querySelector("#day1temp")
-        day1Temp.className = "forecast-info"
+        day1Temp.className = "forcast-information"
         day1Temp.textContent = "Temp: " + Math.floor(response.list[3].main.temp)  + "°F";
 
         var day1Humidity = document.querySelector("#day1humidity")
-        day1Humidity.className = "forecast-info"
+        day1Humidity.className = "forcast-information"
         day1Humidity.textContent = "Humidity: " + response.list[3].main.humidity +"%";
 
         var day1Icon = document.querySelector("#day1-icon")
         day1Icon.setAttribute("src", 'http://openweathermap.org/img/wn/'+response.list[3].weather[0].icon+'.png')
 
         // day 2 forecast
-        var day2El = document.querySelector("#day2")
+        var day2El = document.querySelector("#day-2")
         day2El.className = "column col forecast-container"
 
         var day2Header = document.querySelector("#day2date")
@@ -105,18 +109,18 @@ function getForecast(zipcode) {
         day2Header.textContent = moment().add(2,"days").format("MM[/]D[/]YYYY");
 
         var day2Temp = document.querySelector("#day2temp")
-        day2Temp.className = "forecast-info"
+        day2Temp.className = "forcast-information"
         day2Temp.textContent = "Temp: " + Math.floor(response.list[11].main.temp)  + "°F";
 
         var day2Humidity = document.querySelector("#day2humidity")
-        day2Humidity.className = "forecast-info"
+        day2Humidity.className = "forcast-information"
         day2Humidity.textContent = "Humidity: " + response.list[11].main.humidity +"%";
 
         var day2Icon = document.querySelector("#day2-icon")
         day2Icon.setAttribute("src", 'http://openweathermap.org/img/wn/'+response.list[11].weather[0].icon+'.png')
 
         // day 3 forecast
-        var day3El = document.querySelector("#day3")
+        var day3El = document.querySelector("#day-3")
         day3El.className = "column col forecast-container"
 
         var day3Header = document.querySelector("#day3date")
@@ -124,18 +128,18 @@ function getForecast(zipcode) {
         day3Header.textContent = moment().add(3,"days").format("MM[/]D[/]YYYY");
 
         var day3Temp = document.querySelector("#day3temp")
-        day3Temp.className = "forecast-info"
+        day3Temp.className = "forcast-information"
         day3Temp.textContent = "Temp: " + Math.floor(response.list[19].main.temp)  + "°F";
 
         var day3Humidity = document.querySelector("#day3humidity")
-        day3Humidity.className = "forecast-info"
+        day3Humidity.className = "forcast-information"
         day3Humidity.textContent = "Humidity: " + response.list[19].main.humidity +"%";
 
         var day3Icon = document.querySelector("#day3-icon")
         day3Icon.setAttribute("src", 'http://openweathermap.org/img/wn/'+response.list[19].weather[0].icon+'.png')
 
         // day 4 forecast
-        var day4El = document.querySelector("#day4")
+        var day4El = document.querySelector("#day-4")
         day4El.className = "column col forecast-container"
 
         var day4Header = document.querySelector("#day4date")
@@ -143,18 +147,18 @@ function getForecast(zipcode) {
         day4Header.textContent = moment().add(4,"days").format("MM[/]D[/]YYYY");
 
         var day4Temp = document.querySelector("#day4temp")
-        day4Temp.className = "forecast-info"
+        day4Temp.className = "forcast-information"
         day4Temp.textContent = "Temp: " + Math.floor(response.list[27].main.temp)  + "°F";
 
         var day4Humidity = document.querySelector("#day4humidity")
-        day4Humidity.className = "forecast-info"
+        day4Humidity.className = "forcast-information"
         day4Humidity.textContent = "Humidity: " + response.list[27].main.humidity +"%";
 
         var day4Icon = document.querySelector("#day4-icon")
         day4Icon.setAttribute("src", 'http://openweathermap.org/img/wn/'+response.list[27].weather[0].icon+'.png')
 
         //day 5 forecast
-        var day5El = document.querySelector("#day5")
+        var day5El = document.querySelector("#day-5")
         day5El.className = "column col forecast-container"
 
         var day5Header = document.querySelector("#day5date")
@@ -162,11 +166,11 @@ function getForecast(zipcode) {
         day5Header.textContent = moment().add(5,"days").format("MM[/]D[/]YYYY");
 
         var day5Temp = document.querySelector("#day5temp")
-        day5Temp.className = "forecast-info"
+        day5Temp.className = "forcast-information"
         day5Temp.textContent = "Temp: " + Math.floor(response.list[35].main.temp)  + "°F";
 
         var day5Humidity = document.querySelector("#day5humidity")
-        day5Humidity.className = "forecast-info"
+        day5Humidity.className = "forcast-information"
         day5Humidity.textContent = "Humidity: " + response.list[35].main.humidity +"%";
 
         var day5Icon = document.querySelector("#day5-icon")
@@ -174,6 +178,7 @@ function getForecast(zipcode) {
     })
 }
 
+// function that keeps and loads the search history
 function loadSearchHistory() {
     searchHistory = localStorage.getItem("searches")
     if (!searchHistory || searchHistory === null) {
@@ -184,14 +189,16 @@ function loadSearchHistory() {
     displaySearches();
 }
 
+// function that clears and deletes search history
 function clearSearchHistory() {
     searchHistory = [];
     localStorage.clear();
     location.reload();
 }
 
+// function that shows search history to the user
 function displaySearches() {
-    currentSearch = 0;
+    currentSearchResult = 0;
     for (var i = 0; i < searchHistory.length; i++) {
 
         var buttonContainer = document.createElement("div")
@@ -200,17 +207,18 @@ function displaySearches() {
         var historyButton = document.createElement("button");
         //history button class add to match for event listener
         historyButton.className = "btn bg-white border history-button city-button"
-        historyButton.id = "history-" + currentSearch
-        historyButton.textContent = searchHistory[currentSearch][0].city
-        historyButton.dataset = searchHistory[currentSearch][0].zipcode
+        historyButton.id = "history-" + currentSearchResult
+        historyButton.textContent = searchHistory[currentSearchResult][0].city
+        historyButton.dataset = searchHistory[currentSearchResult][0].zipcode
 
         buttonContainer.appendChild(historyButton);
         searchContainerEl.appendChild(buttonContainer);
 
-        currentSearch++
+        currentSearchResult++
     }
 }
 
+// function that makes sure that user enters a valid zipcode
 function handleSubmit(event) {
     event.preventDefault();
     var zipcode = Number(zipcodeInputEl.value.trim());
@@ -224,6 +232,7 @@ function handleSubmit(event) {
     }
 };
 
+// function that retrieves the UV index
 function getUVindex(lat,lon) {
     fetch("https://api.weatherbit.io/v2.0/current?lat="+lat+"&lon="+lon+"&key=62945687d697ead5f1333d2a6ea75d0a&include=minutely")
     .then(function(response){
