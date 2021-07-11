@@ -98,7 +98,7 @@ function getForecast(zipcode) {
         day1Temp.className = "forcast-information"
         day1Temp.textContent = "Temp: " + Math.floor(response.list[3].main.temp)  + "°F";
 
-        var day1Humidity = document.querySelector("#day1humidity")
+        var day1Humidity = document.querySelector("#day-1-humidity")
         day1Humidity.className = "forcast-information"
         day1Humidity.textContent = "Humidity: " + response.list[3].main.humidity +"%";
 
@@ -117,7 +117,7 @@ function getForecast(zipcode) {
         day2Temp.className = "forcast-information"
         day2Temp.textContent = "Temp: " + Math.floor(response.list[11].main.temp)  + "°F";
 
-        var day2Humidity = document.querySelector("#day2humidity")
+        var day2Humidity = document.querySelector("#day-2-humidity")
         day2Humidity.className = "forcast-information"
         day2Humidity.textContent = "Humidity: " + response.list[11].main.humidity +"%";
 
@@ -136,7 +136,7 @@ function getForecast(zipcode) {
         day3Temp.className = "forcast-information"
         day3Temp.textContent = "Temp: " + Math.floor(response.list[19].main.temp)  + "°F";
 
-        var day3Humidity = document.querySelector("#day3humidity")
+        var day3Humidity = document.querySelector("#day-3-humidity")
         day3Humidity.className = "forcast-information"
         day3Humidity.textContent = "Humidity: " + response.list[19].main.humidity +"%";
 
@@ -155,7 +155,7 @@ function getForecast(zipcode) {
         day4Temp.className = "forcast-information"
         day4Temp.textContent = "Temp: " + Math.floor(response.list[27].main.temp)  + "°F";
 
-        var day4Humidity = document.querySelector("#day4humidity")
+        var day4Humidity = document.querySelector("#day-4-humidity")
         day4Humidity.className = "forcast-information"
         day4Humidity.textContent = "Humidity: " + response.list[27].main.humidity +"%";
 
@@ -174,7 +174,7 @@ function getForecast(zipcode) {
         day5Temp.className = "forcast-information"
         day5Temp.textContent = "Temp: " + Math.floor(response.list[35].main.temp)  + "°F";
 
-        var day5Humidity = document.querySelector("#day5humidity")
+        var day5Humidity = document.querySelector("#day-5-humidity")
         day5Humidity.className = "forcast-information"
         day5Humidity.textContent = "Humidity: " + response.list[35].main.humidity +"%";
 
