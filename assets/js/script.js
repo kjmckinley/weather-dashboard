@@ -19,7 +19,9 @@ function getWeather(zipcode) {
     fetch(weatherAPI).then(function (response) {
             return response.json();
         })
+
         .then(function(response) {
+
             var cityName = document.querySelector("#name-of-city")
             cityName.textContent = response.name;
 
@@ -48,6 +50,7 @@ function getWeather(zipcode) {
                 lat: response.coord.lat,
                 long: response.coord.lon
             }]
+
             searchHistory.push(searchObj)
             localStorage.setItem("searches", JSON.stringify(searchHistory))
 
@@ -70,6 +73,7 @@ function getWeather(zipcode) {
             var lon = response.coord.lon
             getUVindex(lat,lon)
         })
+
     currentSearchResult++
 };
 
@@ -80,16 +84,17 @@ function getForecast(zipcode) {
     fetch(forecastAPI).then(function(response){
         return response.json();
     })
+
     .then(function(response){
-        //day 1 forecast
+        //day-1 forecast
         var day1El = document.querySelector("#day-1")
         day1El.className = "column col forecast-container"
 
-        var day1Header = document.querySelector("#day1date")
+        var day1Header = document.querySelector("#day-1-date")
         day1Header.className = "forecast-head";
         day1Header.textContent = moment().add(1,"days").format("MM[/]D[/]YYYY");
 
-        var day1Temp = document.querySelector("#day1temp")
+        var day1Temp = document.querySelector("#day-1-temp")
         day1Temp.className = "forcast-information"
         day1Temp.textContent = "Temp: " + Math.floor(response.list[3].main.temp)  + "°F";
 
@@ -100,15 +105,15 @@ function getForecast(zipcode) {
         var day1Icon = document.querySelector("#day1-icon")
         day1Icon.setAttribute("src", 'http://openweathermap.org/img/wn/'+response.list[3].weather[0].icon+'.png')
 
-        // day 2 forecast
+        // day-2 forecast
         var day2El = document.querySelector("#day-2")
         day2El.className = "column col forecast-container"
 
-        var day2Header = document.querySelector("#day2date")
+        var day2Header = document.querySelector("#day-2-date")
         day2Header.className = "forecast-head";
         day2Header.textContent = moment().add(2,"days").format("MM[/]D[/]YYYY");
 
-        var day2Temp = document.querySelector("#day2temp")
+        var day2Temp = document.querySelector("#day-2-temp")
         day2Temp.className = "forcast-information"
         day2Temp.textContent = "Temp: " + Math.floor(response.list[11].main.temp)  + "°F";
 
@@ -119,15 +124,15 @@ function getForecast(zipcode) {
         var day2Icon = document.querySelector("#day2-icon")
         day2Icon.setAttribute("src", 'http://openweathermap.org/img/wn/'+response.list[11].weather[0].icon+'.png')
 
-        // day 3 forecast
+        // day-3 forecast
         var day3El = document.querySelector("#day-3")
         day3El.className = "column col forecast-container"
 
-        var day3Header = document.querySelector("#day3date")
+        var day3Header = document.querySelector("#day-3-date")
         day3Header.className = "forecast-head";
         day3Header.textContent = moment().add(3,"days").format("MM[/]D[/]YYYY");
 
-        var day3Temp = document.querySelector("#day3temp")
+        var day3Temp = document.querySelector("#day-3-temp")
         day3Temp.className = "forcast-information"
         day3Temp.textContent = "Temp: " + Math.floor(response.list[19].main.temp)  + "°F";
 
@@ -138,15 +143,15 @@ function getForecast(zipcode) {
         var day3Icon = document.querySelector("#day3-icon")
         day3Icon.setAttribute("src", 'http://openweathermap.org/img/wn/'+response.list[19].weather[0].icon+'.png')
 
-        // day 4 forecast
+        // day-4 forecast
         var day4El = document.querySelector("#day-4")
         day4El.className = "column col forecast-container"
 
-        var day4Header = document.querySelector("#day4date")
+        var day4Header = document.querySelector("#day-4-date")
         day4Header.className = "forecast-head";
         day4Header.textContent = moment().add(4,"days").format("MM[/]D[/]YYYY");
 
-        var day4Temp = document.querySelector("#day4temp")
+        var day4Temp = document.querySelector("#day-4-temp")
         day4Temp.className = "forcast-information"
         day4Temp.textContent = "Temp: " + Math.floor(response.list[27].main.temp)  + "°F";
 
@@ -157,15 +162,15 @@ function getForecast(zipcode) {
         var day4Icon = document.querySelector("#day4-icon")
         day4Icon.setAttribute("src", 'http://openweathermap.org/img/wn/'+response.list[27].weather[0].icon+'.png')
 
-        //day 5 forecast
+        //day-5 forecast
         var day5El = document.querySelector("#day-5")
         day5El.className = "column col forecast-container"
 
-        var day5Header = document.querySelector("#day5date")
+        var day5Header = document.querySelector("#day-5-date")
         day5Header.className = "forecast-head";
         day5Header.textContent = moment().add(5,"days").format("MM[/]D[/]YYYY");
 
-        var day5Temp = document.querySelector("#day5temp")
+        var day5Temp = document.querySelector("#day-5-temp")
         day5Temp.className = "forcast-information"
         day5Temp.textContent = "Temp: " + Math.floor(response.list[35].main.temp)  + "°F";
 
