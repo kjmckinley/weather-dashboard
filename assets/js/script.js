@@ -241,29 +241,29 @@ function handleSubmit(event) {
 };
 
 // function that retrieves the UV index
-function getUVindex(lat,lon) {
-    fetch("https://api.weatherbit.io/v2.0/current?lat="+lat+"&lon="+lon+"&key=62945687d697ead5f1333d2a6ea75d0a&include=minutely")
-    .then(function(response){
-        return response.json();
-    })
-    .then(function(response){
-        var uvIndex = document.querySelector("#uv-index")
-        uvIndex.textContent = "UV Index: " + Math.floor(response.data[0].uv)
-        uvIndex.classList ="show-info"
+// function getUVindex(lat,lon) {
+//     fetch("https://api.weatherbit.io/v2.0/current?lat="+lat+"&lon="+lon+"&key=62945687d697ead5f1333d2a6ea75d0a&include=minutely")
+//     .then(function(response){
+//         return response.json();
+//     })
+//     .then(function(response){
+//         var uvIndex = document.querySelector("#uv-index")
+//         uvIndex.textContent = "UV Index: " + Math.floor(response.data[0].uv)
+//         uvIndex.classList ="show-info"
 
-        var uvIndexData = Math.floor(response.data[0].uv);
+//         var uvIndexData = Math.floor(response.data[0].uv);
 
-        if (uvIndexData <= 2){
-            uvIndex.classList = "show-info uv-safe";
-        }
-        if (uvIndexData >= 3){
-            uvIndex.classList = "show-info uv-warning";
-        }
-        if (uvIndexData >= 6) {
-            uvIndex.classList = "show-info uv-danger";
-        }
-    })
-}
+//         if (uvIndexData <= 2){
+//             uvIndex.classList = "show-info uv-safe";
+//         }
+//         if (uvIndexData >= 3){
+//             uvIndex.classList = "show-info uv-warning";
+//         }
+//         if (uvIndexData >= 6) {
+//             uvIndex.classList = "show-info uv-danger";
+//         }
+//     })
+// }
 
 // handles clicks for the clear and search buttons
 zipcodeFormEl.addEventListener("submit", handleSubmit);
