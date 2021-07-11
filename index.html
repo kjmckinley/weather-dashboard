@@ -21,99 +21,93 @@
     <link rel="stylesheet" href="./assets/css/style.css" />
 </head>
 
-  <body>
-
-    <!-- a nav bar for the heading of the application -->
-    <nav class="navbar navbar-dark bg-dark">
-        <span class="navbar-brand mb-0 h1 w-100 text-center">Weather Dashboard</span>
-    </nav>
-
-    <!-- this div will house all of the pages content -->
+<header class="hero">
+    Weather Dashboard
+</header>
+<body>
     <div class="container">
-
-        <!-- row to contain all rows and columns -->
-        <div class="row">
-
-            <!-- search bar -->
-            <div class="col-4 bg-light">
-                <p class="search">Search for a City!</p>
-                <div class="user-input mb-3">
-                    <input id="user-city" type="text" class="form-control" placeholder="Enter a City Name" />
-                    <div class="user-input-append">
-                        <button class="btn btn-primary" type="button" id="search-btn">
-                            <i class="fas fa-search"></i>
-                        </button>
-                    </div>
+        <!-- Search Col -->
+        <div class="row parent border">
+            <div class="col-4 column bg-light city-container">
+                <div class="row col-12 p-4">
+                    <form id="zipcode-form" class="card-body">
+                        <label class="form-label gx-5" for="zipcode">Enter Your Zipcode:</label>
+                        <div id="search-wrap">
+                        <input name="zipcode" id="zipcode" type="text" class="form-input" id="search-field"/>
+                        <button type="submit" class="btn btn-sm btn-secondary" id="search-button">?</button>
+                        <button type="reset" class="btn btn-sm btn-secondary" id="reset-button">clear</button>
+                        </div>
+                    </form>
                 </div>
-                <!-- user history section -->
-                <form id="user-search-history"></form>
+
+                <div class="column mx-4" id="search-history">
+                </div>
             </div>
-
-            <!-- column that houses all of the weather info -->
-            <div class="col-8">
-
-                <!-- row that holds the base weather conditions -->
-                <div class="row mr-0">
-
-                    <div class="col-12 border border-dark m-3 rounded">
-
-                        <!-- row that displays the city name and a weather icon -->
-                        <div class="row">
-                            <span id="city" class="city align-middle"></span>
-                            <img id="weather-conditon-pic" src="placeholder" alt="" />
-                        </div>
-
-                        <!-- Mmultiple rows displaying the base weather conditions -->
-                        <div class="row">
-
-                            <div class="col-12">
-                                <p id="temperature"></p>
-                            </div>
-                        </div>
-
-                        <div class="row">
-
-                            <div class="col-12">
-                                <p id="humidity"></p>
-                            </div>
-                        </div>
-
-                        <div class="row">
-
-                            <div class="col-12">
-                                <p id="windspeed"></p>
-                            </div>
-                        </div>
-
-                        <div class="row">
-
-                            <div class="col-12">
-                                <p id="uv-index"></p>
-                            </div>
-                        </div>
-                    </div>
+            <!-- Rows -->
+            <div class="col-8 column">
+                <!-- City and Date -->
+                <div class="row align-center p-3">
+                    <h2 class ="city-header" id="city-name"></h2>
+                    <h3 id="current-day"></h3>
+                    <img id="weather-icon"/>
                 </div>
 
+                <div class="row ps-3">
+                    <p class="info-display" id="current-temp"></p>
+                </div>
                 <div class="row">
-
-                    <div class="col-12">
-                        <h3>5-Day Forcast</h3>
-                    </div>
+                    <p class="info-display" id="feels-like"></p>
+                </div>
+                <div class="row">
+                    <p class="info-display" id="humidity"></p>
+                </div>
+                <div class="row">
+                    <p class="info-display" id="wind-speed"></p>
+                </div>
+                <div class="row">
+                    <p class="info-display" id="uv-index"></p>
                 </div>
 
-                <!-- 5 columns that will contain the local weather information -->
-                <div class="col forecast bg-primary text-white ml-3 mb-3 rounded"></div>
-                <div class="col forecast bg-primary text-white ml-3 mb-3 rounded"></div>
-                <div class="col forecast bg-primary text-white ml-3 mb-3 rounded"></div>
-                <div class="col forecast bg-primary text-white ml-3 mb-3 rounded"></div>
-                <div class="col forecast bg-primary text-white ml-3 mb-3 rounded"></div>
+                <div class="row p-3 justify-content-center text-center" id="forecast-container">
+                    <div class="column col" id="day1">
+                        <h2 class="forecast-header" id="day1date"></h2>
+                        <p class="forecast-info" id="day1temp"></p>
+                        <p class="forecast-info" id="day1humidity"></p>
+                        <img id="day1-icon">
+                    </div>
+                    <div class="column col" id="day2">
+                        <h2 class="forecast-header" id="day2date"></h2>
+                        <p class="forecast-info" id="day2temp"></p>
+                        <p class="forecast-info" id="day2humidity"></p>
+                        <img id="day2-icon">
+                    </div>
+                    <div class="column col" id="day3">
+                        <h2 class="forecast-header" id="day3date"></h2>
+                        <p class="forecast-info" id="day3temp"></p>
+                        <p class="forecast-info" id="day3humidity"></p>
+                        <img id="day3-icon">
+                    </div>
+                    <div class="column col" id="day4">
+                        <h2 class="forecast-header" id="day4date"></h2>
+                        <p class="forecast-info" id="day4temp"></p>
+                        <p class="forecast-info" id="day4humidity"></p>
+                        <img id="day4-icon">
+                    </div>
+                    <div class="column col" id="day5">
+                        <h2 class="forecast-header" id="day5date"></h2>
+                        <p class="forecast-info" id="day5temp"></p>
+                        <p class="forecast-info" id="day5humidity"></p>
+                        <img id="day5-icon">
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-</div>
-
-    <!-- Relative path to script.js -->
-    <script src="./assets/js/script.js"></script>
-  </body>
+    </div>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"
+    integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ=="
+    crossorigin="anonymous"></script>
+<script src="./assets/js/script.js"></script>
 
 </html>
