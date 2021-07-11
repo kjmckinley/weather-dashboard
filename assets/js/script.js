@@ -18,7 +18,7 @@ function getWeather(zipcode) {
             return response.json();
         })
         .then(function(response) {
-            var cityName = document.querySelector("#city-name")
+            var cityName = document.querySelector("#name-of-city")
             cityName.textContent = response.name;
 
             var currentDay = document.querySelector("#current-day")
