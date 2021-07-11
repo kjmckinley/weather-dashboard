@@ -2,8 +2,8 @@
 
 // API Key: 62945687d697ead5f1333d2a6ea75d0a
 
-var clearHistoryBtn = document.querySelector("#reset-button");
-var zipcodeInputEl = document.querySelector("#zipcode");
+var clearCitiesBtn = document.querySelector("#reset-button");
+var zipcodeUserInputEl = document.querySelector("#zipcode");
 var zipcodeFormEl = document.querySelector("#zipcode-form");
 
 
@@ -12,7 +12,7 @@ var currentSearchResult = 0;
 var searchHistory = [];
 
 
-// function that activates the api and sets everything up to be retieved and displayed in the html
+// function that activates the api and sets everything up to be retrieved and displayed in the html
 function getWeather(zipcode) {
     var weatherAPI = "https://api.openweathermap.org/data/2.5/weather?zip=" + zipcode + ",us&units=imperial&appid=62945687d697ead5f1333d2a6ea75d0a";
 
@@ -26,6 +26,7 @@ function getWeather(zipcode) {
             cityName.textContent = response.name;
 
             var currentDay = document.querySelector("#current-day")
+
             currentDay.textContent = moment().format("[(]MM[/]D[/]YYYY[)]")
 
             var weatherIcon = document.querySelector("#weather-icon")
@@ -33,6 +34,7 @@ function getWeather(zipcode) {
 
             var temp = document.querySelector("#current-temp")
             temp.textContent = "Temperature: " + response.main.temp + "°F";
+
             var feelsLike = document.querySelector("#feels-like")
             feelsLike.textContent = "Feels Like: " + response.main.feels_like + "°F";
 
@@ -71,6 +73,7 @@ function getWeather(zipcode) {
 
             var lat = response.coord.lat
             var lon = response.coord.lon
+
             getUVindex(lat,lon)
         })
 
@@ -226,12 +229,12 @@ function displaySearches() {
 // function that makes sure that user enters a valid zipcode
 function handleSubmit(event) {
     event.preventDefault();
-    var zipcode = Number(zipcodeInputEl.value.trim());
+    var zipcode = Number(zipcodeUserInputEl.value.trim());
 
     if (zipcode) {
         getWeather(zipcode);
         getForecast(zipcode);
-        zipcodeInputEl.value = "";
+        zipcodeUserInputEl.value = "";
     } else {
         alert("Please enter a valid zipcode!");
     }
@@ -263,7 +266,7 @@ function getUVindex(lat,lon) {
 }
 
 zipcodeFormEl.addEventListener("submit", handleSubmit);
-clearHistoryBtn.addEventListener("click", clearSearchHistory);
+clearCitiesBtn.addEventListener("click", clearSearchHistory);
 
 
 loadSearchHistory();
