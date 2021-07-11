@@ -265,6 +265,7 @@ function getUVindex(lat,lon) {
     })
 }
 
+// handles clicks for the clear and search buttons
 zipcodeFormEl.addEventListener("submit", handleSubmit);
 clearCitiesBtn.addEventListener("click", clearSearchHistory);
 
